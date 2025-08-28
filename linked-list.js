@@ -28,6 +28,18 @@ class LinkedList {
     newNode.nextNode = this.head;
     this.head = newNode;
   }
+
+  size() {
+    let total = 0;
+    let tmp = this.head
+    
+    while(tmp) {
+      total++
+      tmp = tmp.nextNode
+    }
+
+    return total;
+  }
 }
 
 class Node {
@@ -41,5 +53,5 @@ class Node {
 const list = new LinkedList()
 list.append("dog");
 list.append("cat");
-list.prepend("parrot");
-console.log(list.head);
+list.append("parrot");
+console.log(list.size());
