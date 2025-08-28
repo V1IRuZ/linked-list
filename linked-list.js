@@ -74,6 +74,29 @@ class LinkedList {
 
     return tmp;
   }
+
+  pop() {
+    if(!this.head) {
+      return null;
+    }
+
+    if (!this.head.nextNode) {
+      const poppedNode = this.head;
+      this.head = null;
+      return poppedNode;
+    }
+
+    let tmp = this.head;
+    let prev = null;
+
+    while(tmp.nextNode) {
+      prev = tmp;
+      tmp = tmp.nextNode;
+    }
+
+    prev.nextNode = null;
+    return tmp;
+  }
 }
 
 class Node {
@@ -88,4 +111,5 @@ const list = new LinkedList()
 list.append("dog");
 list.append("cat");
 list.append("parrot");
-console.log(list.at(2));
+let test = list.pop();
+console.log(test);
