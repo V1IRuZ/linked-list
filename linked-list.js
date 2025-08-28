@@ -58,6 +58,22 @@ class LinkedList {
 
     return tmp;
   }
+
+  at(index) {
+    if(!this.head || index < 0 || index >= this.size()) {
+      return null;
+    }
+    
+    let nodeIndex = 0;
+    let tmp = this.head;
+
+    while(nodeIndex < index) {
+      tmp = tmp.nextNode;
+      nodeIndex++;
+    }
+
+    return tmp;
+  }
 }
 
 class Node {
@@ -72,4 +88,4 @@ const list = new LinkedList()
 list.append("dog");
 list.append("cat");
 list.append("parrot");
-console.log(list.getTail());
+console.log(list.at(2));
