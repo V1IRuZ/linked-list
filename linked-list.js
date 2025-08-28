@@ -1,4 +1,4 @@
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.head = null;
   }
@@ -105,11 +105,3 @@ class Node {
     this.nextNode = nextNode;
   }
 }
-
-
-const list = new LinkedList()
-list.append("dog");
-list.append("cat");
-list.append("parrot");
-let test = list.pop();
-console.log(test);
