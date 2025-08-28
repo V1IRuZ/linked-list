@@ -31,11 +31,11 @@ class LinkedList {
 
   size() {
     let total = 0;
-    let tmp = this.head
+    let tmp = this.head;
 
     while(tmp) {
-      total++
-      tmp = tmp.nextNode
+      total++;
+      tmp = tmp.nextNode;
     }
 
     return total;
@@ -43,6 +43,20 @@ class LinkedList {
 
   getHead() {
     return this.head;
+  }
+
+  getTail() {
+    if (!this.head) {
+      return null;
+    }
+
+    let tmp = this.head;
+
+    while(tmp.nextNode) {
+      tmp = tmp.nextNode;
+    }
+
+    return tmp;
   }
 }
 
@@ -58,4 +72,4 @@ const list = new LinkedList()
 list.append("dog");
 list.append("cat");
 list.append("parrot");
-console.log(list.getHead());
+console.log(list.getTail());
