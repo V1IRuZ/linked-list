@@ -1,12 +1,33 @@
 class LinkedList {
-  constructor(head) {
-    this.head = head;
+  constructor() {
+    this.head = null;
+  }
+
+  append(value) {
+    const newNode = new Node(value);
+
+    if(!this.head) {
+      return this.head = newNode;
+    }
+
+    let tmp = this.head;
+    while (tmp.nextNode) {
+      tmp = tmp.nextNode;
+    }
+
+    tmp.nextNode = newNode;
   }
 }
 
 class Node {
-  constructor(value = null) {
-    this.value = value; 
-    this.nextNode = null;
+  constructor(data = null, nextNode = null) {
+    this.data = data; 
+    this.nextNode = nextNode;
   }
 }
+
+
+const list = new LinkedList()
+list.append("dog");
+list.append("cat");
+console.log(list.head);
