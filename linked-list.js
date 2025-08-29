@@ -134,6 +134,23 @@ export default class LinkedList {
 
     return null;
   }
+
+  toString() {
+    if (!this.head) {
+      return "null";
+    }
+
+    let currentNode = this.head;
+    let output = "";
+
+    while (currentNode) {
+      output += `( ${currentNode.data} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+
+    output += "null";
+    return output;
+  }
 }
 
 class Node {
