@@ -10,12 +10,12 @@ export default class LinkedList {
       return this.head = newNode;
     }
 
-    let tmp = this.head;
-    while (tmp.nextNode) {
-      tmp = tmp.nextNode;
+    let currentNode = this.head;
+    while (currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
     }
 
-    tmp.nextNode = newNode;
+    currentNode.nextNode = newNode;
   }
 
   prepend(value) {
@@ -31,11 +31,11 @@ export default class LinkedList {
 
   size() {
     let total = 0;
-    let tmp = this.head;
+    let currentNode = this.head;
 
-    while(tmp) {
+    while(currentNode) {
       total++;
-      tmp = tmp.nextNode;
+      currentNode = currentNode.nextNode;
     }
 
     return total;
@@ -50,13 +50,13 @@ export default class LinkedList {
       return null;
     }
 
-    let tmp = this.head;
+    let currentNode = this.head;
 
-    while(tmp.nextNode) {
-      tmp = tmp.nextNode;
+    while(currentNode.nextNode) {
+      currentNode = currentNode.nextNode;
     }
 
-    return tmp;
+    return currentNode;
   }
 
   at(index) {
@@ -65,14 +65,14 @@ export default class LinkedList {
     }
     
     let nodeIndex = 0;
-    let tmp = this.head;
+    let currentNode = this.head;
 
     while(nodeIndex < index) {
-      tmp = tmp.nextNode;
+      currentNode = currentNode.nextNode;
       nodeIndex++;
     }
 
-    return tmp;
+    return currentNode;
   }
 
   pop() {
@@ -86,16 +86,16 @@ export default class LinkedList {
       return poppedNode;
     }
 
-    let tmp = this.head;
-    let prev = null;
+    let currentNode = this.head;
+    let previousNode = null;
 
-    while(tmp.nextNode) {
-      prev = tmp;
-      tmp = tmp.nextNode;
+    while(currentNode.nextNode) {
+      previousNode = currentNode;
+      currentNode = currentNode.nextNode;
     }
 
-    prev.nextNode = null;
-    return tmp;
+    previousNode.nextNode = null;
+    return currentNode;
   }
 
   contains(value) {
