@@ -114,6 +114,26 @@ export default class LinkedList {
 
     return false;
   }
+
+  find(value) {
+    if (!this.head) {
+      return null;
+    }
+
+    let nodeIndex = 0;
+    let currentNode = this.head;
+    
+    while (currentNode) {
+      if (currentNode.data === value) {
+        return nodeIndex;
+      }
+
+      nodeIndex++;
+      currentNode = currentNode.nextNode;
+    }
+
+    return null;
+  }
 }
 
 class Node {
