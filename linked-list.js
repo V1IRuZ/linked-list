@@ -67,19 +67,23 @@ export default class LinkedList {
   }
 
   at(index) {
-    if(!this.headNode || index < 0 || index >= this.size()) {
+    if(!this.headNode) {
       return null;
     }
     
     let nodeIndex = 0;
     let currentNode = this.headNode;
 
-    while(nodeIndex < index) {
+    while(currentNode) {
+      if (index === nodeIndex) {
+        return currentNode;
+      }
+
       currentNode = currentNode.nextNode;
       nodeIndex++;
     }
 
-    return currentNode;
+    console.log("Index out of range");
   }
 
   pop() {
