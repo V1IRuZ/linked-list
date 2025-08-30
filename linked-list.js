@@ -185,6 +185,31 @@ export default class LinkedList {
 
     return console.log("Index out of range");
   }
+
+  removeAt(index) {
+    if (index === 0) {
+      const removedNode = this.head
+      this.head = this.head.nextNode;
+      return removedNode;
+    }
+
+    let currentNode = this.head;
+    let previousNode = null;
+    let nodeIndex = 0;
+
+    while (currentNode) {
+      if (nodeIndex === index) {
+         previousNode.nextNode = currentNode.nextNode;
+         return currentNode;
+      }
+
+      previousNode = currentNode;
+      currentNode = currentNode.nextNode;
+      nodeIndex++;
+    }
+
+    console.log("Index out of range");
+  }
 }
 
 class Node {
