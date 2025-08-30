@@ -1,3 +1,10 @@
+class Node {
+  constructor(data = null) {
+    this.data = data; 
+    this.nextNode = null;
+  }
+}
+
 export default class LinkedList {
   constructor() {
     this.head = null;
@@ -209,12 +216,5 @@ export default class LinkedList {
     }
 
     console.log("Index out of range");
-  }
-}
-
-class Node {
-  constructor(data = null, nextNode = null) {
-    this.data = data; 
-    this.nextNode = nextNode;
   }
 }
