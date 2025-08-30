@@ -164,6 +164,10 @@ export default class LinkedList {
   }
 
   insertAt(value, index) {
+    if(!this.headNode) {
+      return null
+    }
+
     const newNode = new Node(value);
 
     // Insert as a head node
@@ -198,6 +202,10 @@ export default class LinkedList {
   }
 
   removeAt(index) {
+    if (!this.headNode) {
+      return null
+    }
+
     if (index === 0) {
       const removedNode = this.headNode
       this.headNode = this.headNode.nextNode;
