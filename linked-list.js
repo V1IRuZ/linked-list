@@ -7,17 +7,17 @@ class Node {
 
 export default class LinkedList {
   constructor() {
-    this.head = null;
+    this.headNode = null;
   }
 
   append(value) {
     const newNode = new Node(value);
 
-    if(!this.head) {
-      return this.head = newNode;
+    if(!this.headNode) {
+      return this.headNode = newNode;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     while (currentNode.nextNode) {
       currentNode = currentNode.nextNode;
     }
@@ -28,17 +28,17 @@ export default class LinkedList {
   prepend(value) {
     const newNode = new Node(value);
 
-    if (!this.head) {
-      return this.head = newNode;
+    if (!this.headNode) {
+      return this.headNode = newNode;
     }
 
-    newNode.nextNode = this.head;
-    this.head = newNode;
+    newNode.nextNode = this.headNode;
+    this.headNode = newNode;
   }
 
   size() {
     let total = 0;
-    let currentNode = this.head;
+    let currentNode = this.headNode;
 
     while(currentNode) {
       total++;
@@ -48,16 +48,16 @@ export default class LinkedList {
     return total;
   }
 
-  getHead() {
-    return this.head;
+  head() {
+    return this.headNode;
   }
 
-  getTail() {
-    if (!this.head) {
+  tail() {
+    if (!this.headNode) {
       return null;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
 
     while(currentNode.nextNode) {
       currentNode = currentNode.nextNode;
@@ -67,12 +67,12 @@ export default class LinkedList {
   }
 
   at(index) {
-    if(!this.head || index < 0 || index >= this.size()) {
+    if(!this.headNode || index < 0 || index >= this.size()) {
       return null;
     }
     
     let nodeIndex = 0;
-    let currentNode = this.head;
+    let currentNode = this.headNode;
 
     while(nodeIndex < index) {
       currentNode = currentNode.nextNode;
@@ -83,17 +83,17 @@ export default class LinkedList {
   }
 
   pop() {
-    if(!this.head) {
+    if(!this.headNode) {
       return null;
     }
 
-    if (!this.head.nextNode) {
-      const poppedNode = this.head;
-      this.head = null;
+    if (!this.headNode.nextNode) {
+      const poppedNode = this.headNode;
+      this.headNode = null;
       return poppedNode;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     let previousNode = null;
 
     while(currentNode.nextNode) {
@@ -106,11 +106,11 @@ export default class LinkedList {
   }
 
   contains(value) {
-    if(!this.head) {
+    if(!this.headNode) {
       return false;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
 
     while(currentNode) {
       if(currentNode.data === value) {
@@ -123,12 +123,12 @@ export default class LinkedList {
   }
 
   find(value) {
-    if (!this.head) {
+    if (!this.headNode) {
       return null;
     }
 
     let nodeIndex = 0;
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     
     while (currentNode) {
       if (currentNode.data === value) {
@@ -143,11 +143,11 @@ export default class LinkedList {
   }
 
   toString() {
-    if (!this.head) {
+    if (!this.headNode) {
       return "null";
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     let output = "";
 
     while (currentNode) {
@@ -164,12 +164,12 @@ export default class LinkedList {
 
     // Insert as a head node
     if (index === 0) {
-      newNode.nextNode = this.head;
-      this.head = newNode;
+      newNode.nextNode = this.headNode;
+      this.headNode = newNode;
       return;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     let previousNode = null;
     let nodeIndex = 0;
 
@@ -195,12 +195,12 @@ export default class LinkedList {
 
   removeAt(index) {
     if (index === 0) {
-      const removedNode = this.head
-      this.head = this.head.nextNode;
+      const removedNode = this.headNode
+      this.headNode = this.headNode.nextNode;
       return removedNode;
     }
 
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     let previousNode = null;
     let nodeIndex = 0;
 
