@@ -151,6 +151,40 @@ export default class LinkedList {
     output += "null";
     return output;
   }
+
+  insertAt(value, index) {
+    const newNode = new Node(value);
+
+    // Insert as a head node
+    if (index === 0) {
+      newNode.nextNode = this.head;
+      this.head = newNode;
+      return;
+    }
+
+    let currentNode = this.head;
+    let previousNode = null;
+    let nodeIndex = 0;
+
+    while(currentNode) {
+      if (index === nodeIndex) {
+        newNode.nextNode = currentNode;
+        previousNode.nextNode = newNode;
+        return;
+      }
+
+      previousNode = currentNode;
+      currentNode = currentNode.nextNode;
+      nodeIndex++;
+    }
+
+    // Insert as a tail node
+    if (index === nodeIndex) {
+      return previousNode.nextNode = newNode;
+    }
+
+    return console.log("Index out of range");
+  }
 }
 
 class Node {
